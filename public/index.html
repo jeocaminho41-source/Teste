@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08110d">
+  <meta name="description" content="Futebol AI — placares, classificação e análise com inteligência artificial.">
+  <title>Futebol AI</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <div class="brand"><span class="brand-dot"></span> Futebol AI</div>
+        <p class="subtitle">Dados de futebol + análise inteligente em um só lugar.</p>
+      </div>
+      <div class="topbar-actions">
+        <span id="apiStatus" class="status-pill">Conectando...</span>
+        <button id="refreshBtn" class="ghost-btn">↻ Atualizar</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <span class="eyebrow">CENTRAL DE FUTEBOL</span>
+          <h1>Veja o jogo. <span>Entenda o jogo.</span></h1>
+          <p>Placar, partidas, tabela e um analista de IA preparado para responder sobre o futebol que está no seu painel.</p>
+        </div>
+        <div class="hero-ball">⚽</div>
+      </section>
+
+      <section class="controls card">
+        <label>Competição<select id="leagueSelect"></select></label>
+        <label>Temporada<input id="seasonInput" type="number" min="2000" max="2100" value="2026"></label>
+        <div class="mode-buttons">
+          <button class="mode active" data-mode="next">Próximos</button>
+          <button class="mode" data-mode="live">Ao vivo</button>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="card panel">
+          <div class="panel-head">
+            <div><span class="eyebrow">PARTIDAS</span><h2 id="matchesTitle">Próximos jogos</h2></div>
+            <span id="matchCount" class="muted"></span>
+          </div>
+          <div id="matches" class="matches"></div>
+        </div>
+
+        <div class="card panel">
+          <div class="panel-head"><div><span class="eyebrow">CLASSIFICAÇÃO</span><h2>Tabela</h2></div></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>Time</th><th>J</th><th>V</th><th>E</th><th>D</th><th>PTS</th></tr></thead>
+              <tbody id="standings"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="ai-section card">
+        <div class="ai-header">
+          <div><span class="eyebrow">FUTEBOL AI</span><h2>Seu analista de futebol</h2><p>Pergunte sobre os jogos e a tabela exibidos no painel.</p></div>
+          <div class="ai-icon">✦</div>
+        </div>
+        <div id="chat" class="chat"></div>
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" autocomplete="off" placeholder="Ex.: qual jogo merece mais atenção hoje?">
+          <button type="submit">Analisar</button>
+        </form>
+        <div class="suggestions">
+          <button data-question="Faça um resumo dos próximos jogos.">Resumo dos jogos</button>
+          <button data-question="Qual time está melhor colocado na tabela e por quê?">Melhor colocado</button>
+          <button data-question="Analise os confrontos exibidos e destaque os mais interessantes.">Analisar confrontos</button>
+        </div>
+      </section>
+    </main>
+    <footer>Futebol AI • Projeto inicial pronto para receber dados reais e IA.</footer>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
