@@ -1,0 +1,16 @@
+{
+  "name": "futebol-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dashboard de futebol com dados ao vivo e assistente de IA.",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  }
+}
